@@ -1,16 +1,40 @@
-# This is a sample Python script.
+class Calculator:
+    def __init__(self, length_km:float, unit_chosen:str):
+        self.length_km = length_km
+        self.unit_chosen = unit_chosen
+        self.length_calculated = float
+    # milimetry, centrymentry, metry, cale, stopy, mile
+    def km_to_milimeter(self):
+        return self.length_km * 1000*1000
+    def km_to_centimeter(self):
+        return self.length_km * 1000*100
+    def km_to_meter(self):
+        return self.length_km * 1000
+    def km_to_inch(self):
+        return self.length_km * 1000 * 39.3700787
+    def km_to_feet(self):
+        return self.length_km * 1000 * 3.2808399
+    def km_to_mile(self):
+        return self.length_km * 0.621371192
+    def choose_unit(self):
+        if self.unit_chosen=='milimeter':
+            self.length_calculated = self.km_to_milimeter()
+        elif self.unit_chosen=='centimeter':
+            self.length_calculated = self.km_to_centimeter()
+        elif self.unit_chosen=='meter':
+            self.length_calculated = self.km_to_meter()
+        elif self.unit_chosen=='inch':
+            self.length_calculated = self.km_to_inch()
+        elif self.unit_chosen=='feet':
+            self.length_calculated = self.km_to_feet()
+        elif self.unit_chosen=='mile':
+            self.length_calculated = self.km_to_mile()
+        else:
+            print('Wrong unit! Try again')
+        return self.length_calculated
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+    # milimetry, centrymentry, metry, cale, stopy, mile
 
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+calculator = Calculator(length_km=25.6, unit_chosen='inch')
+przelicznik = calculator.choose_unit()
+print(przelicznik)
